@@ -16,6 +16,8 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"_dP', { noremap = true, silent = true })
+-- In your Neovim configuration file (e.g., init.lua)
+vim.keymap.set('n', '<leader>g', 'ggVG', { noremap = true, silent = true })
 
 -- Enable line numbers
 vim.opt.number = true
