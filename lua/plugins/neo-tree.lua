@@ -40,9 +40,27 @@ return {
             end,
           },
         },
+        window = {
+          mappings = {
+            ['y'] = function(state)
+              local node = state.tree:get_node()
+              local filepath = node.path
+              local filename = node.name
+              -- Copy the filename to the clipboard
+              vim.fn.setreg('+', filename)
+              vim.notify('Copied filename: ' .. filename)
+            end,
+            ['Y'] = function(state)
+              local node = state.tree:get_node()
+              local filepath = node.path
+              -- Copy the full path to the clipboard
+              vim.fn.setreg('+', filepath)
+              vim.notify('Copied path: ' .. filepath)
+            end,
+          },
+        },
       }
       vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left toggle<CR>', {})
     end,
   },
 }
-
